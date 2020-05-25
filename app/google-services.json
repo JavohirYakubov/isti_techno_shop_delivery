@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "278572207965",
+    "firebase_url": "https://isti-techno-shop-delivery.firebaseio.com",
+    "project_id": "isti-techno-shop-delivery",
+    "storage_bucket": "isti-techno-shop-delivery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278572207965:android:4251009790de713aea22b4",
+        "android_client_info": {
+          "package_name": "uz.isti.techno_shop_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278572207965-jrqrb97vd0nq8oqkok6temtadi6pvg5s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.isti.techno_shop_delivery",
+            "certificate_hash": "6ec709ee72d8b0c395e234a3ec6fee9294ff4bce"
+          }
+        },
+        {
+          "client_id": "278572207965-v1l0u50lv8fo4b08hddoh47mi3vrtccc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEqWcP_Os10jED1eH9-fEzU1N7U_SIotc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278572207965-v1l0u50lv8fo4b08hddoh47mi3vrtccc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

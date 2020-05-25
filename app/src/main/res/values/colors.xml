@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#9C9C9C</color>
+    <color name="colorAccent">#268DED</color>
+    <color name="white">#fff</color>
+    <color name="edit_text_title_color">#464646</color>
+    <color name="black">#000</color>
+    <color name="light_gray">#F0F0F0</color>
+    <color name="status_waiting">#FFB300</color>
+    <color name="status_sent">#3949AB</color>
+    <color name="status_completed">#43A047</color>
+    <color name="status_cancelled">#D81B60</color>
+    <color name="background_color">#FBFBFB</color>
+    <color name="green">#0DC646</color>
+    <color name="gray_text">#C7C7C7</color>
+</resources>
