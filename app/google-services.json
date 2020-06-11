@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "278572207965",
-    "firebase_url": "https://isti-techno-shop-delivery.firebaseio.com",
-    "project_id": "isti-techno-shop-delivery",
-    "storage_bucket": "isti-techno-shop-delivery.appspot.com"
+    "project_number": "189794297117",
+    "firebase_url": "https://metrodelux-delivery.firebaseio.com",
+    "project_id": "metrodelux-delivery",
+    "storage_bucket": "metrodelux-delivery.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:278572207965:android:4251009790de713aea22b4",
+        "mobilesdk_app_id": "1:189794297117:android:59f1f0f1c5fa4d8c8e2df4",
         "android_client_info": {
-          "package_name": "uz.isti.techno_shop_delivery"
+          "package_name": "uz.isti.metrodelux_delivery"
         }
       },
       "oauth_client": [
         {
-          "client_id": "278572207965-jrqrb97vd0nq8oqkok6temtadi6pvg5s.apps.googleusercontent.com",
+          "client_id": "189794297117-sllqsss9dc9iagqjbmlk7f0jhplr3l76.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "uz.isti.techno_shop_delivery",
+            "package_name": "uz.isti.metrodelux_delivery",
             "certificate_hash": "6ec709ee72d8b0c395e234a3ec6fee9294ff4bce"
           }
         },
         {
-          "client_id": "278572207965-v1l0u50lv8fo4b08hddoh47mi3vrtccc.apps.googleusercontent.com",
+          "client_id": "189794297117-e5vddcvfhcj9a4n3oaidqqfonj08rl2f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDEqWcP_Os10jED1eH9-fEzU1N7U_SIotc"
+          "current_key": "AIzaSyANtFU6CxNgzZdb6bK18MgqLUSGS-tKjkU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "278572207965-v1l0u50lv8fo4b08hddoh47mi3vrtccc.apps.googleusercontent.com",
+              "client_id": "189794297117-e5vddcvfhcj9a4n3oaidqqfonj08rl2f.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

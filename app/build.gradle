@@ -10,7 +10,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "uz.isti.techno_shop_delivery"
+        applicationId "uz.isti.metrodelux_delivery"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -28,7 +28,7 @@ android {
             debuggable = true
             android.applicationVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "ISTI-Techno-Shop-Delivery-${variant.versionName}-${variant.buildType.name}.apk"
+                    outputFileName = "MetroDelux-Delivery-${variant.versionName}-${variant.buildType.name}.apk"
                 }
             }
         }
