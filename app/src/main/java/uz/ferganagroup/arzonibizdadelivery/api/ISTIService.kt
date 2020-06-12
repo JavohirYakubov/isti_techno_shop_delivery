@@ -6,6 +6,6 @@ import uz.ferganagroup.arzonibizdadelivery.model.ISTIBaseResponse
 import java.util.*
 
 interface ISTIService {
-    @GET("load_config/MobilTest")
+    @GET("load_config/Metro_Delux")
     fun getConfig(): Observable<ISTIBaseResponse<ISTICheckModel>>
 }

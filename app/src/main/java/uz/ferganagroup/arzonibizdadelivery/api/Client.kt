@@ -23,8 +23,12 @@ import javax.net.ssl.X509TrustManager
 object Client {
 
     internal lateinit var retrofit: Retrofit
+    var username: String = ""
+    var password: String = ""
 
-    fun initClient(context: Context, host: String) {
+    fun initClient(context: Context, host: String, username: String, password: String) {
+        this.username = username
+        this.password = password
         val gson = GsonBuilder()
             .setLenient()
             .create()
@@ -91,7 +95,7 @@ object Client {
             var builder = original.newBuilder()
             builder.addHeader("Content-Type", "application/json")
             builder.header("Connection", "close")
-            builder.addHeader("Authorization", Credentials.basic("mobiles", "123"))
+            builder.addHeader("Authorization", Credentials.basic(username, password))
 //            if (Prefs.getToken() != null && !Prefs.getToken().isEmpty()) {
 //                builder.addHeader("token", Prefs.getToken())
 //            }

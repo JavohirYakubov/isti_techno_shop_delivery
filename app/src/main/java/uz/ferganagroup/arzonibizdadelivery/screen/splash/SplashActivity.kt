@@ -34,15 +34,7 @@ class SplashActivity : BaseActivity() {
 
 
     override fun initViews() {
-        NetworkUtils.registerNetworkStatusChangedListener(object: NetworkUtils.OnNetworkStatusChangedListener{
-            override fun onConnected(networkType: NetworkUtils.NetworkType?) {
-                loadData()
-            }
 
-            override fun onDisconnected() {
-
-            }
-        })
     }
 
     override fun loadData() {
@@ -74,11 +66,12 @@ class SplashActivity : BaseActivity() {
                     if (!t.error){
                         val host = "http://" + t.items.ipaddress + ":" + t.items.ipport + "/" + t.items.href_address + "/"
                         App.imageBaseUrl = "http://" + t.items.ipaddress + ":" + t.items.ipport + "/img/" + t.items.secret_name + "/"
-                        Client.initClient(App.app, host)
+                        Client.initClient(App.app, host, t.items.mobile_username ?: "", t.items.mobile_password ?: "")
                         if ((t.items.delivery_version_code?.toIntOrNull() ?: 0) > BuildConfig.VERSION_CODE){
                             showMustUpdate()
                         }else if (Prefs.getToken().isNullOrEmpty()){
                             startClearTopActivity<SignActivity>()
+                            finish()
                         }else{
                             startClearTopActivity<MainActivity>()
                             finish()

@@ -8,5 +8,7 @@ data class ISTICheckModel(
     val edate: String,
     val status: String,
     val secret_name: String,
-    val delivery_version_code: String?
+    val delivery_version_code: String?,
+    val mobile_username: String?,
+    val mobile_password: String?
 )
