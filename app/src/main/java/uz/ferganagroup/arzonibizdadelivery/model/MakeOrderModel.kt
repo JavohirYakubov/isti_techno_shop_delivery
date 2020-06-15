@@ -23,12 +23,12 @@ data class MakeOrderModel(
 data class MakeOrderProductModel(
     val name: String,
     val pid: String,
-    val price: Int,
+    val price: Double,
     val dona: Int,
     val blok: Double,
     val bonus: Boolean,
     val comment: String,
-    val psumma: Int,
+    val psumma: Double,
     val pname: String = ""
 ): Serializable
 
