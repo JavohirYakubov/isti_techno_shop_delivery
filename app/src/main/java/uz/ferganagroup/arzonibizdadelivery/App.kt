@@ -7,6 +7,7 @@ import androidx.multidex.MultiDexApplication
 import com.orhanobut.hawk.Hawk
 import uz.ferganagroup.arzonibizdadelivery.services.sms.AppSignatureHelper
 import uz.ferganagroup.arzonibizdadelivery.api.Client
+import uz.ferganagroup.arzonibizdadelivery.api.ISTClient
 import uz.ferganagroup.arzonibizdadelivery.utils.Prefs
 
 class App : MultiDexApplication(){
@@ -17,6 +18,7 @@ class App : MultiDexApplication(){
     override fun onCreate() {
         super.onCreate()
         app = this
+        ISTClient.initClient(app)
         MultiDex.install(this)
         Prefs.init(this)
         Log.d("JW ISTI", AppSignatureHelper(this).appSignatures[0])

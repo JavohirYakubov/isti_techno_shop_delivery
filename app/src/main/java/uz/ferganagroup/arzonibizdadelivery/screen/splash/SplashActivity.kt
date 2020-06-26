@@ -18,6 +18,7 @@ import uz.ferganagroup.arzonibizdadelivery.App
 import uz.ferganagroup.arzonibizdadelivery.BuildConfig
 import uz.ferganagroup.arzonibizdadelivery.R
 import uz.ferganagroup.arzonibizdadelivery.api.Client
+import uz.ferganagroup.arzonibizdadelivery.api.ISTClient
 import uz.ferganagroup.arzonibizdadelivery.api.ISTICheckModel
 import uz.ferganagroup.arzonibizdadelivery.api.ISTIService
 import uz.ferganagroup.arzonibizdadelivery.base.*
@@ -31,7 +32,7 @@ class SplashActivity : BaseActivity() {
     override fun getLayout(): Int = R.layout.activity_splash
 
     val compositeDisposable = CompositeDisposable()
-
+    val api = ISTClient.retrofit.create(ISTIService::class.java)
 
     override fun initViews() {
 
@@ -40,9 +41,9 @@ class SplashActivity : BaseActivity() {
     override fun loadData() {
         NetworkUtils.isAvailableAsync {
             runOnUiThread {
-                if (it){
+                if (it) {
                     getData()
-                }else{
+                } else {
                     showWarning("Tarmoq bilan ulanish yo'q.")
                 }
             }
@@ -53,30 +54,39 @@ class SplashActivity : BaseActivity() {
 
     }
 
-    fun getData(){
-        compositeDisposable.add(createService().getConfig().subscribeOn(Schedulers.io())
+    fun getData() {
+        compositeDisposable.add(api.getConfig().subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object: DisposableObserver<ISTIBaseResponse<ISTICheckModel>>(){
+            .subscribeWith(object : DisposableObserver<ISTIBaseResponse<ISTICheckModel>>() {
                 override fun onComplete() {
 
                 }
 
                 override fun onNext(t: ISTIBaseResponse<ISTICheckModel>) {
                     //http://91.196.77.110:60020/MobilTest/odata/standard.odata/
-                    if (!t.error){
-                        val host = "http://" + t.items.ipaddress + ":" + t.items.ipport + "/" + t.items.href_address + "/"
-                        App.imageBaseUrl = "http://" + t.items.ipaddress + ":" + t.items.ipport + "/img/" + t.items.secret_name + "/"
-                        Client.initClient(App.app, host, t.items.mobile_username ?: "", t.items.mobile_password ?: "")
-                        if ((t.items.delivery_version_code?.toIntOrNull() ?: 0) > BuildConfig.VERSION_CODE){
+                    if (!t.error) {
+                        val host =
+                            "http://" + t.items.ipaddress + ":" + t.items.ipport + "/" + t.items.href_address + "/"
+                        App.imageBaseUrl =
+                            "http://" + t.items.ipaddress + ":" + t.items.ipport + "/img/" + t.items.secret_name + "/"
+                        Client.initClient(
+                            App.app,
+                            host,
+                            t.items.mobile_username ?: "",
+                            t.items.mobile_password ?: ""
+                        )
+                        if ((t.items.delivery_version_code?.toIntOrNull()
+                                ?: 0) > BuildConfig.VERSION_CODE
+                        ) {
                             showMustUpdate()
-                        }else if (Prefs.getToken().isNullOrEmpty()){
+                        } else if (Prefs.getToken().isNullOrEmpty()) {
                             startClearTopActivity<SignActivity>()
                             finish()
-                        }else{
+                        } else {
                             startClearTopActivity<MainActivity>()
                             finish()
                         }
-                    }else{
+                    } else {
                         showError(t.message)
                     }
                 }
@@ -84,14 +94,15 @@ class SplashActivity : BaseActivity() {
                 override fun onError(e: Throwable) {
                     showError(e.localizedMessage)
                 }
-            }))
+            })
+        )
     }
 
     override fun updateData() {
 
     }
 
-    fun showMustUpdate(){
+    fun showMustUpdate() {
         val bottomSheetDialog = BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.must_update_layout, null)
         bottomSheetDialog.setContentView(view)
@@ -104,7 +115,7 @@ class SplashActivity : BaseActivity() {
     }
 
 
-    fun showLanguageDialog(){
+    fun showLanguageDialog() {
         val bottomSheetDialog = BottomSheetDialog(this)
         val viewLang = layoutInflater.inflate(R.layout.bottomsheet_language, null)
         bottomSheetDialog.setContentView(viewLang)
@@ -124,19 +135,5 @@ class SplashActivity : BaseActivity() {
         }
 
         bottomSheetDialog.show()
-    }
-
-    companion object {
-        fun createService(): ISTIService {
-            val retrofit = Retrofit.Builder()
-                .addCallAdapterFactory(
-                    RxJava2CallAdapterFactory.create())
-                .addConverterFactory(
-                    GsonConverterFactory.create())
-                .baseUrl("http://isti.uz/mobiles/")
-                .build()
-
-            return retrofit.create(ISTIService::class.java)
-        }
     }
 }
