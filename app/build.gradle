@@ -28,7 +28,7 @@ android {
             debuggable = true
             android.applicationVariants.all { variant ->
                 variant.outputs.all {
-                    outputFileName = "MetroDelux-Delivery-${variant.versionName}-${variant.buildType.name}.apk"
+                    outputFileName = "MetroDeluxe-Delivery-${variant.versionName}-${variant.buildType.name}.apk"
                 }
             }
         }
